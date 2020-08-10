@@ -4,6 +4,8 @@ import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import { Route, Switch, Link } from "react-router-dom";
+import "../stylesheets/core/variables.scss";
+import "../stylesheets/core/mixins.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class App extends React.Component {
     };
     this.searchInput = this.searchInput.bind(this);
     this.renderingDetail = this.renderingDetail.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
   componentDidMount() {
     fetch(
@@ -39,6 +42,10 @@ class App extends React.Component {
     );
     this.setState({ characterFiltered: filtered });
   }
+  resetSearch(){
+    window.location.reload();
+  }
+
 
   renderingDetail(id) {
     const character = this.state.characterFiltered.find(character => character.id === parseInt(id) );
@@ -57,24 +64,23 @@ class App extends React.Component {
     }
     else{
       return(
-        <>
-        <Link to={'/'}><button type='button'>Volver</button></Link>
-      <div>Este personaje no existe</div>
-      </>)
+        <div className="container">
+        <Link to={'/'}><button className="back2" type='button'>Volver</button></Link>
+      <p class="message">Este personaje no existe</p>
+      </div>)
     }
   }
 
   render() {
     return (
       <div className="App">
-        <header>
-          <h1 className="title">Rick and Morty</h1>
-          
+        <header className="header">
+          <h1 className="title">Rick and Morty</h1>         
         </header>
         <Switch>
           <Route exact path="/">
             <main className="main">
-              <Filters inputSearch={this.searchInput} />
+              <Filters inputSearch={this.searchInput} resetSearch={this.resetSearch} />
               <CharacterList charactersToPaint={this.state.characterFiltered} />
             </main>
           </Route>

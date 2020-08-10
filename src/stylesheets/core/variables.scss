@@ -1,0 +1,17 @@
+/*COLOURS*/
+
+$lightColour:#aed8e8;
+$darkColour:#0e0e0e; 
+$primaryColour: #6ee454;
+
+
+/*FONT*/
+@font-face{
+    font-family: myFont;
+    src: url(../font/get_schwifty.ttf);
+}
+
+/*BREACKPOINTS*/
+
+$tablet: 760px;
+$desktop: 1280px;
