@@ -66,7 +66,7 @@ class App extends React.Component {
       return(
         <div className="container">
         <Link to={'/'}><button className="back2" type='button'>Volver</button></Link>
-      <p class="message">Este personaje no existe</p>
+      <p class="message">El personaje que buscas no existe.</p>
       </div>)
     }
   }
@@ -75,16 +75,17 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="header">
-          <h1 className="title">Rick and Morty</h1>         
+          <div className="title">
+            <img alt="title" src="https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png"/>
+          </div>
         </header>
         <Switch>
           <Route exact path="/">
             <main className="main">
               <Filters inputSearch={this.searchInput} resetSearch={this.resetSearch} />
-              <CharacterList charactersToPaint={this.state.characterFiltered} />
+              <CharacterList inputSearch={this.state.inputValue} charactersToPaint={this.state.characterFiltered} />
             </main>
           </Route>
-          <Route path="/otraRaiz" render={() => (<CharacterList charactersToPaint={this.state.characterFiltered} />)}/>
           <Route path="/details/:id" render={(routerProps) => this.renderingDetail(routerProps.match.params.id)}></Route>
         </Switch>
       </div>

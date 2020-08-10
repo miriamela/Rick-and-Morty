@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 import "../stylesheets/core/mixins.scss";
 import "../stylesheets/core/variables.scss";
 import "../stylesheets/layout/characterDetails.scss";
@@ -25,4 +26,5 @@ class CharacterDetail extends React.Component {
     );
   }
 }
+CharacterDetail.propsTypes = { renderingDetail: PropTypes.func.isRequired };
 export default CharacterDetail;

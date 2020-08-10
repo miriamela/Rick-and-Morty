@@ -9,7 +9,7 @@ class CharacterList extends React.Component {
   render() {
     if (this.props.charactersToPaint.length === 0) {
       return (
-        <p className="showResultsNone">No hay ningun personaje con este nombre</p>
+        <p className="showResultsNone">{`No hay ningun personaje que coincida con la palabra ${this.props.inputSearch}`}</p>
       );
     } else {
       const contentResults = [];
@@ -28,5 +28,6 @@ class CharacterList extends React.Component {
     }
   }
 }
-CharacterList.propsTypes = { charactersArr: PropTypes.array.isRequired };
+CharacterList.propsTypes = { charactersToPaint: PropTypes.array.isRequired };
+CharacterList.propsTypes = { inputSearch: PropTypes.string.isRequired };
 export default CharacterList;
