@@ -26,5 +26,5 @@ class CharacterDetail extends React.Component {
     );
   }
 }
-CharacterDetail.propsTypes = { renderingDetail: PropTypes.func.isRequired };
+CharacterDetail.propTypes = {name: PropTypes.string.isRequired, species:PropTypes.string.isRequired, planet: PropTypes.string.isRequired, episode: PropTypes.number.isRequired, status: PropTypes.string.isRequired, imageURL:PropTypes.string.isRequired};
 export default CharacterDetail;

@@ -24,16 +24,13 @@ class App extends React.Component {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.setState({ characters: data.results }, () =>
           this.filterCharacters()
         );
       });
   }
   searchInput(input) {
-    // console.log('me has clicado')
     this.setState({ inputValue: input }, () => this.filterCharacters());
-    console.log(this.state.inputValue);
   }
   filterCharacters() {
     const filtered = this.state.characters.filter((x) =>
@@ -42,11 +39,10 @@ class App extends React.Component {
     this.setState({ characterFiltered: filtered });
   }
 
-
-
   renderingDetail(id) {
-    const character = this.state.characterFiltered.find(character => character.id === parseInt(id) );
-    // debugger;
+    const character = this.state.characterFiltered.find(
+      (character) => character.id === parseInt(id)
+    );
     if (character) {
       return (
         <CharacterDetail
@@ -58,13 +54,17 @@ class App extends React.Component {
           imageURL={character.image}
         />
       );
-    }
-    else{
-      return(
+    } else {
+      return (
         <div className="container">
-        <Link to={'/'}><button className="back2" type='button'>Volver</button></Link>
-      <p class="message">El personaje que buscas no existe.</p>
-      </div>)
+          <Link to={"/"}>
+            <button className="back2" type="button">
+              Volver
+            </button>
+          </Link>
+          <p class="message">El personaje que buscas no existe.</p>
+        </div>
+      );
     }
   }
 
@@ -73,17 +73,31 @@ class App extends React.Component {
       <div className="App">
         <header className="header">
           <div className="title">
-            <img alt="title" src="https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png"/>
+            <img
+              alt="title"
+              src="https://help.redbubble.com/hc/article_attachments/360002309526/Rick_and_Morty_-_logo__English_.png"
+            />
           </div>
         </header>
         <Switch>
           <Route exact path="/">
             <main className="main">
-              <Filters inputSearch={this.searchInput} resetSearch={this.resetSearch} />
-              <CharacterList inputSearch={this.state.inputValue} charactersToPaint={this.state.characterFiltered} />
+              <Filters
+                inputSearch={this.searchInput}
+                value={this.state.inputValue}
+              />
+              <CharacterList
+                inputSearch={this.state.inputValue}
+                charactersToPaint={this.state.characterFiltered}
+              />
             </main>
           </Route>
-          <Route path="/details/:id" render={(routerProps) => this.renderingDetail(routerProps.match.params.id)}></Route>
+          <Route
+            path="/details/:id"
+            render={(routerProps) =>
+              this.renderingDetail(routerProps.match.params.id)
+            }
+          ></Route>
         </Switch>
       </div>
     );

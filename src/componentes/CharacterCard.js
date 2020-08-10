@@ -26,5 +26,5 @@ class CharacterCard extends React.Component {
     );
   }
 }
-CharacterCard.propsType = { character: PropTypes.array.isRequired };
+CharacterCard.propTypes = { character: PropTypes.object.isRequired };
 export default CharacterCard;

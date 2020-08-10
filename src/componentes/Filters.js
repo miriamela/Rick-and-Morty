@@ -18,9 +18,6 @@ class Filters extends React.Component {
       event.preventDefault();
     }
   }
-  handleClick(){
-   this.props.resetSearch()
-  }
   render() {
     return (
       <form className="search">
@@ -36,6 +33,5 @@ class Filters extends React.Component {
     );
   }
 }
-Filters.propTypes ={resetSearch: PropTypes.func.isRequired }
-Filters.propTypes ={searchInput: PropTypes.func.isRequired }
+Filters.propTypes ={inputSearch: PropTypes.func.isRequired, value:PropTypes.string.isRequired}
 export default Filters;

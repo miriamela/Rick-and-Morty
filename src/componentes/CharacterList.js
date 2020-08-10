@@ -28,6 +28,5 @@ class CharacterList extends React.Component {
     }
   }
 }
-CharacterList.propsTypes = { charactersToPaint: PropTypes.array.isRequired };
-CharacterList.propsTypes = { inputSearch: PropTypes.string.isRequired };
+CharacterList.propTypes = { charactersToPaint: PropTypes.array.isRequired, inputSearch: PropTypes.string.isRequired };
 export default CharacterList;
