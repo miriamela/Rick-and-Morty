@@ -17,7 +17,6 @@ class App extends React.Component {
     };
     this.searchInput = this.searchInput.bind(this);
     this.renderingDetail = this.renderingDetail.bind(this);
-    this.resetSearch = this.resetSearch.bind(this);
   }
   componentDidMount() {
     fetch(
@@ -42,9 +41,7 @@ class App extends React.Component {
     );
     this.setState({ characterFiltered: filtered });
   }
-  resetSearch(){
-    window.location.reload();
-  }
+
 
 
   renderingDetail(id) {
@@ -80,7 +77,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <main className="main">
-              <Filters inputSearch={this.searchInput} resetSearch={this.resetSearch} />
+              <Filters inputSearch={this.searchInput} />
               <CharacterList charactersToPaint={this.state.characterFiltered} />
             </main>
           </Route>
