@@ -11,44 +11,33 @@
 }
 
 .header {
-  border: solid $darkColour;
   height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   & .title {
-    text-align: center;
-    font-family: myFont;
-    color: $primaryColour;
-    // border: 1px solid $lightColour;
-    font-size: 40px;
-    @include tablet {
-      font-size: 60px;
-    }
-    @include desktop {
-      font-size: 80px;
-    }
+    margin-top: 20px;
   }
 }
-.container{
- display:flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-& .back2 {
-  font-size: 14px;
-  border: solid;
-  border-radius: 5px;
-  width: 150%;
-  color: $darkColour;
-  background-color: $primaryColour;
-}
-& .message{
-  margin-top: 30px;
-  padding-left: 10px;
-  color: $lightColour;
-  text-align: center;
-}
+  & .back2 {
+    font-size: 14px;
+    border: solid;
+    border-radius: 5px;
+    width: 150%;
+    color: $darkColour;
+    background-color: $primaryColour;
+  }
+  & .message {
+    margin-top: 30px;
+    padding-left: 10px;
+    color: $lightColour;
+    text-align: center;
+  }
 }

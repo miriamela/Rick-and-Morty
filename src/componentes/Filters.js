@@ -1,7 +1,8 @@
 import React from "react";
-import "../stylesheets/core/variables.scss";
-import "../stylesheets/core/mixins.scss";
-import "../stylesheets/layout/filters.scss";
+import PropTypes from "prop-types";
+import '../stylesheets/core/variables.scss';
+import '../stylesheets/core/mixins.scss';
+import '../stylesheets/layout/filters.scss';
 class Filters extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,9 @@ class Filters extends React.Component {
     if (event.which === 13) {
       event.preventDefault();
     }
+  }
+  handleClick(){
+   this.props.resetSearch()
   }
   render() {
     return (
@@ -32,4 +36,6 @@ class Filters extends React.Component {
     );
   }
 }
+Filters.propTypes ={resetSearch: PropTypes.func.isRequired }
+Filters.propTypes ={searchInput: PropTypes.func.isRequired }
 export default Filters;
